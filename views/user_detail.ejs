@@ -1,8 +1,74 @@
+
+<!DOCTYPE html>
 <html lang="en-gb">
 <%- include('_head') -%>
-<%- include('_header') -%>
-<body>
-<h1><%= name %></h1>
-</body>
+    <%- include('_header') -%>
+    <button id="menu_list" onclick="onClickMenu()">🍔</button>
+
+        <body>
+            <img class="profile_image" src="<%= user.profileImageUrl %>" alt="user's profile picture">
+            <img class="background_picture" src="<%= user.coverImageUrl %>" alt="user's main picture">
+            <div class="user_info">
+                <%= user.name %>
+                    <br>
+                <%= user.username %>
+                    </br>
+                <%= user.email %>
+            </div>
+        <h3>
+            <%=user.name.split(' ')[0] %>' s Posts </h3>
+            <div class="flex_posts_container">
+                <% user.posts.forEach(function(post) {%>
+                    <div class="individual_post_container">
+                        <img class="post_image" src="<%=post.imageUrl %>" alt="image uploaded by user">
+                        <p class="associated_data">
+                            <%= post.message %>
+                                <%= format(post.createdAt, "dd/MM/yyyy" ) %>
+                        </p>
+                    </div>
+                    <%})%>
+            </div>
+            </div>
+            </section>
+            <h3><%=user.name.split(' ')[0] %>' s Liked Posts </h3>
+                    <section class="user_likes">
+
+                        <div class="flex_posts_container">
+                            <% user.likes.forEach(function(post) {%>
+                                <!-- LIKES is a key/property of USER that returns an array  -->
+                                <div class="individual_post_container">
+                                    <img class="elem1 post_image" src="<%= post.imageUrl %>" alt="post image" />
+                                    <div>
+                                        <p class="associated_data">
+                                            <%= post.message %>
+                                                <%= post.createdAt.split(' ')[0] %>
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <% }); %>
+                        </div>
+                    </section>
+
+                    <h3><%=user.name.split(' ')[0] %>' s Disliked Posts </h3>
+                                                    <section class="user_dislikes">
+                                                        <div class="flex_posts_container">
+                                                            <% user.dislikes.forEach(function(post) {%>
+                                                                <section class="individual_post_container">
+                                                                    <img class="elem1 post_image"
+                                                                        src="<%= post.imageUrl %>" alt="post image" />
+                                                                    <div>
+                                                                        <p class="associated_data">
+                                                                            <%= post.message %>
+                                                                                <%= post.createdAt.split(' ')[0] %>
+                                                </p>
+                                            
+                                            </div>
+                                        </section>
+                                        <% }); %>
+                            
+
+        </body>
+        
 <%- include('_footer') -%>
 </html>

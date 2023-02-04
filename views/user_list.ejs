@@ -5,20 +5,28 @@
         <body>
             <h1>Users</h1>
             <ol>
-                <% results.forEach(function(user) {%>
+                <% userList.results.forEach(function(user) {%>
                     <li>
-                        <%= user.name %>
-                            <br />
-                            - <img src=<%=user.profileImageUrl %>> </img>
-
+                        <h3>
+                            <a href="/users/<%= parseInt(user.id) %>/">
+                                <%= user.name %>
+                            </a>
+                            <!-- link not working - used .users/:userId/  ... error expected to find 1 item but found 0 -->
+                        </h3>
+                        <p>
+                            UserId: <%=user.id %>
+                        </p>
+                        <br></br>
+                        <img src="<%=user.profileImageUrl %>>" </img>
+                        <!-- with an extra > after the %> tag above, the picture changes - why? -->
                     </li>
                     <% }); %>
             </ol>
-            <%if (next) { %>
-                <a href="<%= next %>">Next</a>
+            <%if (userList.next) { %>
+                <a href="<%= userList.next %>">Next</a>
                 <% } %>
-                    <%if (previous) { %>
-                        <a href="<%= previous %>">Previous</a>
+                    <%if (userList.previous) { %>
+                        <a href="<%= userList.previous %>">Previous</a>
                         <% } %>
         </body>
         <%- include('_footer') -%>

@@ -1,0 +1,95 @@
+/* Add your styles here. */
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.menu,
+.content {
+    float: left;
+    padding: 1%;
+    width: 100%;
+}
+
+.header {
+    background-color: #667f8e;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+.post-list ul {
+    padding-left: 5px;
+    margin: 0;
+}
+
+.post-list li {
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+    font-weight: bold;
+    background-color: #DCDCDC;
+    padding-left: 5px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #a7a2a2;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(70, 19, 222, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.menu li:hover {
+    background-color: #1c87c9;
+}
+
+@media only screen and (min-width: 280px) {
+    .menu {
+        width: 20%;
+    }
+
+    .content {
+        width: 74%;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 412px) {
+    .menu {
+        width: 20%;
+    }
+
+    .content {
+        width: 74%;
+    }
+}
+
+@keyframes MY_ANIMATION {
+    0% {
+        background: green
+    }
+
+    25% {
+        background: red
+    }
+
+    75% {
+        background: purple
+    }
+
+    100% {
+        background: yellow
+    }
+}
+
+button:hover {
+    background: yellow;
+    animation: MY_ANIMATION 4s;
+}
